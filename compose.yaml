@@ -1,0 +1,23 @@
+services:
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: mailpit
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/London
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+  app:
+    image: 'paystubs-api:latest'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      mailpit:
+        condition: service_healthy
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/bhd_users
+    ports:
+      - "8085:8085"
