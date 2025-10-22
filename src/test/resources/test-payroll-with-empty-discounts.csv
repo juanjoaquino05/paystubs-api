@@ -1,0 +1,3 @@
+full_name,email,position,health_discount_amount,social_discount_amount,taxes_discount_amount,other_discount_amount,gross_salary,gross_payment,net_payment,period
+Alice Williams,alice@example.com,Junior Developer,,,,,4000.00,4000.00,4000.00,2024-02
+Charlie Brown,charlie@example.com,Intern,0.00,0.00,0.00,0.00,2500.00,2500.00,2500.00,2024-02

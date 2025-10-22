@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: "Paystubs API Test"
+
+  mail:
+    host: localhost
+    port: 1025
+    username: test@example.com
+    password: testpass
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+
+server:
+  port: 0
+
+app:
+  auth:
+    user: testuser
+    password: testpass

@@ -1,0 +1,4 @@
+full_name,email,position,health_discount_amount,social_discount_amount,taxes_discount_amount,other_discount_amount,gross_salary,gross_payment,net_payment,period
+John Doe,john.doe@example.com,Software Engineer,150.00,250.00,450.00,50.00,6000.00,5500.00,4600.00,2024-01
+Jane Smith,jane.smith@example.com,Senior Manager,200.00,350.00,750.00,100.00,8500.00,8000.00,6600.00,2024-01
+Bob Johnson,bob.johnson@example.com,Data Analyst,120.00,200.00,350.00,30.00,5000.00,4700.00,4000.00,2024-01
