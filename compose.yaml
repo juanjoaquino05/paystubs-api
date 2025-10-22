@@ -17,5 +17,9 @@ services:
     depends_on:
       mailpit:
         condition: service_healthy
+    environment:
+      - MAIL_HOST=mailpit
     ports:
       - "8085:8085"
+    volumes:
+      - ./logos:/logos:ro
