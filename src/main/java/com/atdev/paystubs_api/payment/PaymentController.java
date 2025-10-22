@@ -44,7 +44,7 @@ public class PaymentController {
         ProcessPaymentResponse  response = ProcessPaymentResponse.builder()
                 .sent(results)
                 .company(company)
-                .country(country)
+                .country(Country.valueOf(country))
                 .build();
 
         return ResponseEntity.ok(response);
