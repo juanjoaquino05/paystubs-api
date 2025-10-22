@@ -1,5 +1,6 @@
 package com.atdev.paystubs_api.payment;
 
+import com.atdev.paystubs_api.email.EmailService;
 import com.atdev.paystubs_api.payment.util.Labels;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class PayrollService {
     private final CsvService csvService;
     private final PdfService pdfService;
     private final LogoService logoService;
+    private final EmailService emailService;
 
     public List<Map<String, Object>> processCsvAndSend(Country country, String credentials, String company, MultipartFile csv) throws Exception {
         Locale locale = switch (country.toString().toLowerCase()) {
@@ -29,7 +31,7 @@ public class PayrollService {
         List<Map<String, Object>> sent = new ArrayList<>();
         for (PayrollRecord rec : rows) {
             byte[] pdf = pdfService.render(rec, company, logo, Labels.of(locale));
-            sendEmail(rec, company, pdf, locale);
+            emailService.sendEmail(rec, company, pdf, locale);
             sent.add(Map.of(
                     "email", rec.email(),
                     "full_name", rec.fullName(),
@@ -38,8 +40,5 @@ public class PayrollService {
         }
 
         return sent;
-    }
-
-    private void sendEmail(PayrollRecord rec, String company, byte[] pdf, Locale loc) throws Exception {
     }
 }

@@ -39,12 +39,12 @@ public class PaymentController {
             );
         }
 
-        List<Map<String, Object>> results = payrollService.processCsvAndSend(Country.valueOf(country), credentials, company, csv);
+        List<Map<String, Object>> results = payrollService.processCsvAndSend(Country.fromValue(country), credentials, company, csv);
 
         ProcessPaymentResponse  response = ProcessPaymentResponse.builder()
                 .sent(results)
                 .company(company)
-                .country(Country.valueOf(country))
+                .country(Country.fromValue(country))
                 .build();
 
         return ResponseEntity.ok(response);

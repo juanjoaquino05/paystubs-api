@@ -9,4 +9,14 @@ public enum Country {
     Country(String value) {
         this.value = value;
     }
+
+    public static Country fromValue(String value) {
+        for (Country country : Country.values()) {
+            if (country.value.equals(value)) {
+                return country;
+            }
+        }
+
+        return null;
+    }
 }
