@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: "Paystubs API"
+
+server:
+  port: 8085
+
+app:
+  auth:
+    password: ${APP_PASSWORD:pwd}
+    user: ${APP_USER:user}
