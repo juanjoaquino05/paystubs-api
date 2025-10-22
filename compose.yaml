@@ -17,7 +17,5 @@ services:
     depends_on:
       mailpit:
         condition: service_healthy
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/bhd_users
     ports:
       - "8085:8085"
